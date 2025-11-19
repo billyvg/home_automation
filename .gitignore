@@ -1,0 +1,8 @@
+build
+node_modules
+deploy
+previous_deploy.tar.gz
+.yarn/install-state.gz
+.env
+synapse_storage.db
+src/hass/
