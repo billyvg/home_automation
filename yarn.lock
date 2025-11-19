@@ -3499,7 +3499,7 @@ __metadata:
     figlet-cli: "npm:^0.3.0"
     globals: "npm:^16.1.0"
     husky: "npm:^9.1.7"
-    ini: "npm:^5.0.0"
+    ini: "npm:^6.0.0"
     lolcatjs: "npm:^2.4.3"
     node-cron: "npm:^4.0.2"
     nodemon: "npm:^3.1.10"
@@ -3636,13 +3636,6 @@ __metadata:
   version: 2.0.4
   resolution: "inherits@npm:2.0.4"
   checksum: 10/cd45e923bee15186c07fa4c89db0aace24824c482fb887b528304694b2aa6ff8a898da8657046a5dcf3e46cd6db6c61629551f9215f208d7c3f157cf9b290521
-  languageName: node
-  linkType: hard
-
-"ini@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "ini@npm:5.0.0"
-  checksum: 10/76e5567b46504b2b12650878ba6277204500a6ead3fe69eef419ee570456b364b39c040ee545846053f6d8a15797a82fc6d9efe06e392b9b6093935f4a2f2c30
   languageName: node
   linkType: hard
 
