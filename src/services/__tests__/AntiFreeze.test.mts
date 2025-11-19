@@ -11,43 +11,49 @@ vi.mock("../utils/notify.mts", () => ({
 
 describe("AntiFreeze", () => {
     it("should turn on plugs when temperature is below threshold", async () => {
-        try {
-            const runner = TestRunner({ target: HOME_AUTOMATION });
-            runner.appendLibrary(LIB_MOCK_ASSISTANT)
+        const runner = TestRunner({ target: HOME_AUTOMATION });
+        runner.appendLibrary(LIB_MOCK_ASSISTANT).configure({
+            hass: {
+                BASE_URL: "http://localhost:8123",
+            },
+        });
 
-            await runner
-                // set up this test to already have state available when run is executed
-                .bootLibrariesFirst()
+        await runner
+            // set up this test to already have state available when run is executed
+            .bootLibrariesFirst()
 
-                .setup(({ mock_assistant }) => {
-                    // use setupState to create an initial set of conditions
-                    mock_assistant.entity.setupState({
-                        "sensor.frontyard_thermometer_temperature": { state: '40' },
-                    });
-                })
-
-                .run(async ({ hass, mock_assistant }) => {
-                    // watch for service calls to be made
-                    const spy1 = vi.spyOn(hass.refBy.id("switch.antifreeze_1"), "turn_on");
-                    const spy2 = vi.spyOn(hass.refBy.id("switch.antifreeze_2"), "turn_on");
-
-                    // emit state change
-                    await mock_assistant.entity.emitChange('sensor.frontyard_thermometer_temperature', {
-                        state: "35"
-                    });
-
-                    // observe result
-                    expect(spy1).toHaveBeenCalledWith({ entity_id: "switch.antifreeze_1" });
-                    expect(spy2).toHaveBeenCalledWith({ entity_id: "switch.antifreeze_2" });
-                    expect(notifyMe).toHaveBeenCalledWith(
-                        expect.anything(),
-                        "Anti-freeze Plugs",
-                        expect.stringContaining("Turning on plugs")
-                    );
+            .setup(({ mock_assistant }) => {
+                // use setupState to create an initial set of conditions
+                mock_assistant.entity.setupState({
+                    "sensor.frontyard_thermometer_temperature": { state: '40' },
                 });
-        } catch (e) {
-            console.error(e);
-        }
+            })
+
+            .run(async ({ hass, lifecycle, mock_assistant }) => {
+                // watch for service calls to be made
+                const spy1 = vi.spyOn(hass.refBy.id("switch.antifreeze_1"), "turn_on");
+                const spy2 = vi.spyOn(hass.refBy.id("switch.antifreeze_2"), "turn_on");
+
+                await mock_assistant.socket.init();
+                expect(hass).toBeDefined();
+                await lifecycle.onReady(() => {
+                    console.log('antifreeze');
+                })
+                // lifecycle.onReady(async () => {
+                // emit state change
+                await mock_assistant.entity.emitChange('sensor.frontyard_thermometer_temperature', {
+                    state: "35"
+                });
+
+                expect(spy1).toHaveBeenCalled();
+                expect(spy2).toHaveBeenCalled();
+                expect(notifyMe).toHaveBeenCalledWith(
+                    expect.anything(),
+                    "Anti-freeze Plugs",
+                    expect.stringContaining("Turning on plugs")
+                );
+                // });
+            });
     });
 
     // it("should turn off plugs when temperature is above threshold", async () => {

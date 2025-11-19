@@ -19,15 +19,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@digital-alchemy/automation@npm:^25.8.21":
-  version: 25.8.21
-  resolution: "@digital-alchemy/automation@npm:25.8.21"
+"@digital-alchemy/automation@npm:^25.11.18":
+  version: 25.11.18
+  resolution: "@digital-alchemy/automation@npm:25.11.18"
   peerDependencies:
     "@digital-alchemy/core": "*"
     "@digital-alchemy/hass": "*"
     "@digital-alchemy/synapse": "*"
     dayjs: ^1
-  checksum: 10/cddd881e9d4d0fcab01534de98222b9846a45daf9a3f3924eba66f9fa6ef985c2585027c2719a294db731753c12b66e5d15b841fd2efbcaae934fd309dcd7505
+  checksum: 10/35dff4d6bd9884f24275f31ac83c455748e9f61b9cb95740a1870b2326f70a1b1a1a27e084919256112608132b38a89d256df5c2b66663d5f1124c420f261889
   languageName: node
   linkType: hard
 
@@ -47,20 +47,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@digital-alchemy/hass@npm:^25.11.16":
-  version: 25.11.16
-  resolution: "@digital-alchemy/hass@npm:25.11.16"
+"@digital-alchemy/hass@npm:^25.11.17-beta.0":
+  version: 25.11.17-beta.0
+  resolution: "@digital-alchemy/hass@npm:25.11.17-beta.0"
   dependencies:
-    dayjs: "npm:^1.11.18"
+    dayjs: "npm:^1.11.19"
     semver: "npm:^7.7.3"
-    type-fest: "npm:^5.1.0"
+    type-fest: "npm:^5.2.0"
     uuid: "npm:^13.0.0"
     ws: "npm:^8.18.3"
   peerDependencies:
     "@digital-alchemy/core": "*"
   bin:
     mock-assistant: scripts/mock-assistant.sh
-  checksum: 10/3c087a35bc6c3c3d4986dcb5ee7f69f4fefda374d79763bad77f8c357bca0a3d9ee31b5c9dc645a2665fd53d59de2cbd5ef3ffa0909dee2fa99afe0307844d8e
+  checksum: 10/63a4a41ec52a7f810e2c52e5e4253bf4171d5101a747c3c76d084c70bc198564bcc90913d33e7ee54022831b02ec259175b3beb9b21f24c1fe5b75d3da3c90f4
   languageName: node
   linkType: hard
 
@@ -1975,7 +1975,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:^1.11.13, dayjs@npm:^1.11.18, dayjs@npm:^1.11.19":
+"dayjs@npm:^1.11.13, dayjs@npm:^1.11.19":
   version: 1.11.19
   resolution: "dayjs@npm:1.11.19"
   checksum: 10/185b820d68492b83a3ce2b8ddc7543034edc1dfd1423183f6ae4707b29929a3cc56503a81826309279f9084680c15966b99456e74cf41f7d1f6a2f98f9c7196f
@@ -3475,9 +3475,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "home_automation@workspace:."
   dependencies:
-    "@digital-alchemy/automation": "npm:^25.8.21"
+    "@digital-alchemy/automation": "npm:^25.11.18"
     "@digital-alchemy/core": "npm:^25.11.19"
-    "@digital-alchemy/hass": "npm:^25.11.16"
+    "@digital-alchemy/hass": "npm:^25.11.17-beta.0"
     "@digital-alchemy/mqtt-extension": "npm:^25.1.1"
     "@digital-alchemy/synapse": "npm:^25.8.21"
     "@digital-alchemy/type-writer": "npm:^25.11.16"
@@ -6037,7 +6037,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^5.1.0, type-fest@npm:^5.2.0":
+"type-fest@npm:^5.2.0":
   version: 5.2.0
   resolution: "type-fest@npm:5.2.0"
   dependencies:

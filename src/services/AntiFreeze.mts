@@ -14,6 +14,7 @@ export function AntiFreeze(service: TServiceParams) {
   const { hass, config, lifecycle, logger } = service;
 
   lifecycle.onReady(() => {
+    console.log('antifreeze')
     const thermometer = hass.refBy.id("sensor.frontyard_thermometer_temperature");
     const smartPlugs = [hass.refBy.id("switch.antifreeze_1"), hass.refBy.id("switch.antifreeze_2")];
 
@@ -76,9 +77,11 @@ export function AntiFreeze(service: TServiceParams) {
     }
 
     thermometer.onUpdate((newState, oldState) => {
+      console.log('thermometer updated', newState.state);
       if (isStateUnavailable(newState, oldState)) {
         return;
       }
+
 
       checkTemps();
     });

@@ -19,9 +19,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@digital-alchemy/automation": "^25.8.21",
+    "@digital-alchemy/automation": "^25.11.18",
     "@digital-alchemy/core": "^25.11.19",
-    "@digital-alchemy/hass": "^25.11.16",
+    "@digital-alchemy/hass": "^25.11.17-beta.0",
     "@digital-alchemy/mqtt-extension": "^25.1.1",
     "@digital-alchemy/synapse": "^25.8.21",
     "dayjs": "^1.11.13",
