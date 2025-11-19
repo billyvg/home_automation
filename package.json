@@ -6,6 +6,7 @@
   "description": "Demonstration home automation project tuned for HAOS",
   "scripts": {
     "build": "./scripts/deploy.sh",
+    "test": "vitest",
     "typecheck": "tsc --skipLibCheck --noEmit",
     "watch": "NODE_ENV=development nodemon --exec tsx src/main.mts",
     "dev": "NODE_ENV=development tsx src/main.mts",
@@ -19,8 +20,8 @@
   "license": "MIT",
   "dependencies": {
     "@digital-alchemy/automation": "^25.8.21",
-    "@digital-alchemy/core": "^25.11.7",
-    "@digital-alchemy/hass": "^25.10.26",
+    "@digital-alchemy/core": "^25.11.19",
+    "@digital-alchemy/hass": "^25.11.16",
     "@digital-alchemy/mqtt-extension": "^25.1.1",
     "@digital-alchemy/synapse": "^25.8.21",
     "dayjs": "^1.11.13",
@@ -30,7 +31,7 @@
     "ws": "^8.18.2"
   },
   "devDependencies": {
-    "@digital-alchemy/type-writer": "^25.10.12",
+    "@digital-alchemy/type-writer": "^25.11.16",
     "@eslint/compat": "^1.2.9",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.26.0",
@@ -53,7 +54,8 @@
     "tslib": "^2.8.1",
     "tsx": "^4.19.4",
     "type-fest": "^4.41.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^2.1.8"
   },
   "packageManager": "yarn@4.9.1"
 }
